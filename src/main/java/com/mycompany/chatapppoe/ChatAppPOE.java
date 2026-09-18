@@ -12,6 +12,7 @@ public class ChatAppPOE {
 
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("\n".repeat(2));
             Login login = new Login();
             
             System.out.println("===== PROG5121 Part 1 - Registration & Login =====\n");
