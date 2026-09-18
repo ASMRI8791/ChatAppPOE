@@ -51,7 +51,7 @@ public class Login {
         }
         return hasUpper && hasDigit && hasSpecial;
     }
-
+    //Checks if cell number starts with +27 and has 9 digits
     public boolean checkCellPhoneNumber(String cellNumber) {
         if (cellNumber == null) {
             return false;
