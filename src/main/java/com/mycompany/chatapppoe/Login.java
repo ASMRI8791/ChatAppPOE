@@ -28,7 +28,7 @@ public class Login {
         }
         return username.contains("_") && username.length() <= 5;
     }
-
+    //Checks password length,capital letter, number and special character
     public boolean checkPasswordComplexity(String password) {
         if (password == null || password.length() < 8) {
             return false;
