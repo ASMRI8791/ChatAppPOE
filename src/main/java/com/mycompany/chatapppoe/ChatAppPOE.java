@@ -53,7 +53,9 @@ public class ChatAppPOE {
             
             if (login.loginUser(loginUsername, loginPassword)){
             System.out.println("You are now logged in!");
+            scanner.close();
         }
         }
     }
    }
+  
