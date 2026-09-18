@@ -50,6 +50,10 @@ public class ChatAppPOE {
             // Call the returnLoginStatus method
             String loginMessage = login.returnLoginStatus(loginUsername, loginPassword);
             System.out.println("\n" + loginMessage);
+            
+            if (login.loginUser(loginUsername, loginPassword)){
+            System.out.println("You are now logged in!");
+        }
         }
     }
    }
