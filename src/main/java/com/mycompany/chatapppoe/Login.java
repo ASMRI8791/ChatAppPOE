@@ -21,7 +21,7 @@ public class Login {
     }
 
     // -------------------- Validation Methods --------------------
-
+    //Checks if username has underscore and is max 5 characters
     public boolean checkUserName(String username) {
         if (username == null) {
             return false;
@@ -73,7 +73,7 @@ public class Login {
         if (!checkPasswordComplexity(password)) {
             return "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.";
         }
-
+        
         if (!checkCellPhoneNumber(cellNumber)) {
             return "Cell phone number incorrectly formatted or does not contain international code.";
         }
