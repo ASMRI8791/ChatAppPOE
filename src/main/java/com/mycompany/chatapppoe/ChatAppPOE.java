@@ -54,6 +54,8 @@ public class ChatAppPOE {
             
             if (login.loginUser(loginUsername, loginPassword)){
             System.out.println("You are now logged in!");
+            }else{
+                System.out.println("Login failed Please try again");
             System.out.println("\nThank you for using the Chat App!");
             scanner.close();
         }
