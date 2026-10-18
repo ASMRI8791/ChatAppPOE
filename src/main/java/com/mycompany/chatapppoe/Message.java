@@ -26,3 +26,10 @@ public class Message {
         this.messageID = generateMessageID();
         this.messageHash = createMessageHash();
     }
+       // Generate random 10-digit Message ID
+    private String generateMessageID() {
+        Random random = new Random();
+        long id = 1000000000L + (long) (random.nextDouble() * 9000000000L);
+        return String.valueOf(id);
+    }
+    
