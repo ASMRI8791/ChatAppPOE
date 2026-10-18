@@ -57,14 +57,13 @@ public class ChatAppPOE {
     System.out.println("You are now logged in!");
     System.out.println("Welcome to QuickChat.");
 
+    // ========== PART 2 STARTS HERE ==========
     ArrayList<Message> sentMessages = new ArrayList<>();
 
     System.out.print("How many messages do you wish to enter? ");
     int totalMessagesToSend = scanner.nextInt();
     scanner.nextLine();
-    }
-   }
-   
+
     boolean running = true;
 
     while (running) {
@@ -76,8 +75,8 @@ public class ChatAppPOE {
 
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
-        
-      switch (menuChoice) {
+
+        switch (menuChoice) {
             case 1:
                 for (int i = 1; i <= totalMessagesToSend; i++) {
                     System.out.println("\n----- Message " + i + " of " + totalMessagesToSend + " -----");
@@ -94,9 +93,8 @@ public class ChatAppPOE {
                         i--;
                         continue;
                     }
-                    
-        
-  Message msg = new Message(i, recipient, messageText);
+
+                    Message msg = new Message(i, recipient, messageText);
 
                     String cellCheck = msg.checkRecipientCell();
                     System.out.println(cellCheck);
@@ -109,4 +107,48 @@ public class ChatAppPOE {
                     System.out.println("\n----- Message Details -----");
                     System.out.println(msg.printMessages());
                     System.out.println("-----------------------------");
+
+                    System.out.println("\nWhat would you like to do with this message?");
+                    System.out.println("1) Send Message");
+                    System.out.println("2) Disregard Message");
+                    System.out.println("3) Store Message to send later");
+                    System.out.print("Enter your choice: ");
+
+                    int action = scanner.nextInt();
+                    scanner.nextLine();
+
+                    String result = msg.SentMessage(action);
+                    System.out.println(result);
+
+                    if (action == 1) {
+                        sentMessages.add(msg);
+                    }
+                }
+                System.out.println("\nTotal number of messages processed: " + totalMessagesToSend);
+                break;
+
+            case 2:
+                System.out.println("Coming Soon.");
+                break;
+
+            case 3:
+                System.out.println("Total messages sent during this session: " + sentMessages.size());
+                System.out.println("Thank you for using QuickChat. Goodbye!");
+                running = false;
+                break;
+
+            default:
+                System.out.println("Invalid option. Please choose 1, 2 or 3.");
+        }
+    }
+
+} else {
+    System.out.println("Login failed. Please try again.");
+}
+
+scanner.close();
+        }
+        }
+    }
+   
   
