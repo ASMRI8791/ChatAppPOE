@@ -32,4 +32,8 @@ public class Message {
         long id = 1000000000L + (long) (random.nextDouble() * 9000000000L);
         return String.valueOf(id);
     }
+      // checkMessageID()
+    public boolean checkMessageID() {
+        return messageID != null && messageID.length() <= 10;
+    }
     
