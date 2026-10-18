@@ -6,3 +6,14 @@ package com.mycompany.chatapppoe;
 
 import java.util.Random;
 import java.util.regex.Pattern;
+
+/**
+ * Message class for PROG5121 Part 2 - Sending Messages
+ */
+public class Message {
+
+    private String messageID;
+    private int messageNumber;
+    private String recipient;
+    private String messageText;
+    private String messageHash;
