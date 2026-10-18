@@ -77,4 +77,22 @@ public class ChatAppPOE {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
         
+      switch (menuChoice) {
+            case 1:
+                for (int i = 1; i <= totalMessagesToSend; i++) {
+                    System.out.println("\n----- Message " + i + " of " + totalMessagesToSend + " -----");
+
+                    System.out.print("Enter recipient cell number (e.g. +27718693002): ");
+                    String recipient = scanner.nextLine();
+
+                    System.out.print("Enter your message (max 250 characters): ");
+                    String messageText = scanner.nextLine();
+
+                    if (messageText.length() > 250) {
+                        int over = messageText.length() - 250;
+                        System.out.println("Message exceeds 250 characters by " + over + "; please reduce the size.");
+                        i--;
+                        continue;
+                    }
+        
   
