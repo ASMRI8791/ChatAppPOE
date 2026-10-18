@@ -94,5 +94,19 @@ public class ChatAppPOE {
                         i--;
                         continue;
                     }
+                    
         
+  Message msg = new Message(i, recipient, messageText);
+
+                    String cellCheck = msg.checkRecipientCell();
+                    System.out.println(cellCheck);
+
+                    if (!cellCheck.contains("successfully")) {
+                        i--;
+                        continue;
+                    }
+
+                    System.out.println("\n----- Message Details -----");
+                    System.out.println(msg.printMessages());
+                    System.out.println("-----------------------------");
   
