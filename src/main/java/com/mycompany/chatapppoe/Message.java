@@ -36,4 +36,22 @@ public class Message {
     public boolean checkMessageID() {
         return messageID != null && messageID.length() <= 10;
     }
+      // checkRecipientCell() using Pattern
+    public String checkRecipientCell() {
+        if (recipient == null || recipient.trim().isEmpty()) {
+            return "Cell phone number is incorrectly formatted or does not contain an international code. Please correct the number and try again.";
+        }
+
+        String cleaned = recipient.replaceAll("\\s+", "");
+
+        // Must start with + followed by digits, maximum 12 characters
+        Pattern pattern = Pattern.compile("^\\+\\d{1,11}$");
+
+        if (pattern.matcher(cleaned).matches()) {
+            return "Cell phone number successfully captured.";
+        } else {
+            return "Cell phone number is incorrectly formatted or does not contain an international code. Please correct the number and try again.";
+        }
+    }
+    
     
