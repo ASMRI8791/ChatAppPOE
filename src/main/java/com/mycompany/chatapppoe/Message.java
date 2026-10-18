@@ -91,5 +91,26 @@ public class Message {
     public int returnTotalMessages() {
         return messageNumber;
     }
+      // Getters
+    public String getMessageID() {
+        return messageID;
+    }
+
+    public String getMessageHash() {
+        return messageHash;
+    }
+
+    public String getRecipient() {
+        return recipient;
+    }
+
+    public String getMessageText() {
+        return messageText;
+    }
+
+    public int getMessageNumber() {
+        return messageNumber;
+    }
+}
     
     
