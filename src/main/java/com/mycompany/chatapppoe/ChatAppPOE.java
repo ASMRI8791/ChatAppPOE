@@ -4,6 +4,7 @@
 
 package com.mycompany.chatapppoe;
 import java.util.Scanner;
+import java.util.ArrayList;
 /**
  *
  * @author student
