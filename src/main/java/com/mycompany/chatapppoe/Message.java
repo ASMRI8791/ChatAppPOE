@@ -17,3 +17,12 @@ public class Message {
     private String recipient;
     private String messageText;
     private String messageHash;
+    
+   // Constructor
+    public Message(int messageNumber, String recipient, String messageText) {
+        this.messageNumber = messageNumber;
+        this.recipient = recipient;
+        this.messageText = messageText;
+        this.messageID = generateMessageID();
+        this.messageHash = createMessageHash();
+    }
