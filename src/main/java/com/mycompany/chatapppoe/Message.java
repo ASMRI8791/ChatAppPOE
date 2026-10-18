@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 /**
  * Message class for PROG5121 Part 2 - Sending Messages
  */
-public class Message {
+public final class Message {
 
     private String messageID;
     private int messageNumber;
