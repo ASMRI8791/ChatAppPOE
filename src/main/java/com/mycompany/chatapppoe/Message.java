@@ -67,16 +67,12 @@ public final class Message {
 
     // SentMessage()
     public String SentMessage(int choice) {
-        switch (choice) {
-            case 1:
-                return "Message successfully sent.";
-            case 2:
-                return "Press 0 to delete the message.";
-            case 3:
-                return "Message successfully stored.";
-            default:
-                return "Invalid option selected.";
-        }
+        return switch (choice) {
+            case 1 -> "Message successfully sent.";
+            case 2 -> "Press 0 to delete the message.";
+            case 3 -> "Message successfully stored.";
+            default -> "Invalid option selected.";
+        };
     }
 
     // printMessages()
