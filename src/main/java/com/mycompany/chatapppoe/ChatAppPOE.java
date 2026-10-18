@@ -64,4 +64,17 @@ public class ChatAppPOE {
     scanner.nextLine();
     }
    }
+   
+    boolean running = true;
+
+    while (running) {
+        System.out.println("\nPlease choose an option:");
+        System.out.println("1) Send Messages");
+        System.out.println("2) Show recently sent messages");
+        System.out.println("3) Quit");
+        System.out.print("Enter your choice: ");
+
+        int menuChoice = scanner.nextInt();
+        scanner.nextLine();
+        
   
