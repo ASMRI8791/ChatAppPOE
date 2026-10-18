@@ -53,14 +53,15 @@ public class ChatAppPOE {
             String loginMessage = login.returnLoginStatus(loginUsername, loginPassword);
             System.out.println("\n" + loginMessage);
             
-            if (login.loginUser(loginUsername, loginPassword)){
-            System.out.println("You are now logged in!");
-            }else{
-                System.out.println("Login failed Please try again");
-            System.out.println("\nThank you for using the Chat App!");
-            scanner.close();
-        }
-        }
+           if (login.loginUser(loginUsername, loginPassword)) {
+    System.out.println("You are now logged in!");
+    System.out.println("Welcome to QuickChat.");
+
+    ArrayList<Message> sentMessages = new ArrayList<>();
+
+    System.out.print("How many messages do you wish to enter? ");
+    int totalMessagesToSend = scanner.nextInt();
+    scanner.nextLine();
     }
    }
   
