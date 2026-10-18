@@ -4,10 +4,5 @@
  */
 package com.mycompany.chatapppoe;
 
-/**
- *
- * @author User
- */
-public class Message {
-    
-}
+import java.util.Random;
+import java.util.regex.Pattern;
