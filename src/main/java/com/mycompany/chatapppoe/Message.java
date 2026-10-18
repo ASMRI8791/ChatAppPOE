@@ -53,5 +53,43 @@ public class Message {
             return "Cell phone number is incorrectly formatted or does not contain an international code. Please correct the number and try again.";
         }
     }
+     // createMessageHash()
+    public String createMessageHash() {
+        String firstTwo = messageID.substring(0, 2);
+
+        String[] words = messageText.trim().split("\\s+");
+        String firstWord = words[0];
+        String lastWord = words[words.length - 1];
+
+        String hash = firstTwo + ":" + messageNumber + ":" + firstWord + lastWord;
+        return hash.toUpperCase();
+    }
+
+    // SentMessage()
+    public String SentMessage(int choice) {
+        switch (choice) {
+            case 1:
+                return "Message successfully sent.";
+            case 2:
+                return "Press 0 to delete the message.";
+            case 3:
+                return "Message successfully stored.";
+            default:
+                return "Invalid option selected.";
+        }
+    }
+
+    // printMessages()
+    public String printMessages() {
+        return "Message ID: " + messageID +
+               "\nMessage Hash: " + messageHash +
+               "\nRecipient: " + recipient +
+               "\nMessage: " + messageText;
+    }
+
+    // returnTotalMessages()
+    public int returnTotalMessages() {
+        return messageNumber;
+    }
     
     
