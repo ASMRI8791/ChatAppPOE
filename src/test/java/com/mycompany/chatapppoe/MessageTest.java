@@ -72,6 +72,30 @@ public class MessageTest {
         assertEquals(10, id.length());          // Must be 10 digits
         assertTrue(msg.checkMessageID());
     }
+    
+     // ========== SentMessage Options Tests ==========
+
+    @Test
+    public void testSentMessage_Send() {
+        Message msg = new Message(1, "+27718693002", "Hi Mike");
+        String result = msg.SentMessage(1);
+        assertEquals("Message successfully sent.", result);
+    }
+
+    @Test
+    public void testSentMessage_Disregard() {
+        Message msg = new Message(1, "+27718693002", "Hi Mike");
+        String result = msg.SentMessage(2);
+        assertEquals("Press 0 to delete the message.", result);
+    }
+
+    @Test
+    public void testSentMessage_Store() {
+        Message msg = new Message(1, "+27718693002", "Hi Mike");
+        String result = msg.SentMessage(3);
+        assertEquals("Message successfully stored.", result);
+    }
+
 
 
 
