@@ -1,0 +1,37 @@
+[
+  {
+    "messageID": "2268721325",
+    "messageNumber": 1,
+    "recipient": "+27613517711",
+    "messageText": "Hi it is me",
+    "messageHash": "22:1:HIME"
+  },
+  {
+    "messageID": "8853469075",
+    "messageNumber": 2,
+    "recipient": "+27613517711",
+    "messageText": "Hello, this is Sheik",
+    "messageHash": "88:2:HELLO,SHEIK"
+  },
+  {
+    "messageID": "9089935142",
+    "messageNumber": 3,
+    "recipient": "+27613517711",
+    "messageText": "Welcome back",
+    "messageHash": "90:3:WELCOMEBACK"
+  },
+  {
+    "messageID": "8811511061",
+    "messageNumber": 5,
+    "recipient": "+27613517711",
+    "messageText": "Welcome back",
+    "messageHash": "88:5:WELCOMEBACK"
+  },
+  {
+    "messageID": "8883630270",
+    "messageNumber": 6,
+    "recipient": "+27613517711",
+    "messageText": "Thank you",
+    "messageHash": "88:6:THANKYOU"
+  }
+]
