@@ -46,6 +46,21 @@ public class MessageTest {
         String result = msg.checkRecipientCell();
         assertTrue(result.contains("incorrectly formatted") || result.contains("international code"));
     }
+    
+     // ========== Message Hash Test ==========
+
+    @Test
+    public void testMessageHash_Correct() {
+        Message msg = new Message(0, "+27718693002", "Hi Mike, can you join us for dinner tonight?");
+        String hash = msg.getMessageHash();
+
+        // The hash should contain the first two digits of the ID, the message number, and the first + last word
+        assertTrue(hash.contains(":"));
+        assertTrue(hash.contains("HI"));
+        assertTrue(hash.contains("TONIGHT") || hash.contains("TONIGHT?".toUpperCase().replace("?", "")));
+        assertEquals(hash, hash.toUpperCase()); // Must be uppercase
+    }
+
 
 
 }
