@@ -6,6 +6,11 @@ package com.mycompany.chatapppoe;
 
 import java.util.Random;
 import java.util.regex.Pattern;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Message class for PROG5121 Part 2 - Sending Messages
@@ -87,6 +92,19 @@ public final class Message {
     public int returnTotalMessages() {
         return messageNumber;
     }
+    
+    // ========== storeMessage() - Saves messages to a JSON file ==========
+// Research attribution: Uses Google Gson library to convert objects to JSON
+public static void storeMessage(ArrayList<Message> messages) {
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+    try (FileWriter writer = new FileWriter("storedMessages.json")) {
+        gson.toJson(messages, writer);
+        System.out.println("Messages successfully stored in storedMessages.json");
+    } catch (IOException e) {
+        System.out.println("Error storing messages: " + e.getMessage());
+    }
+}
       // Getters
     public String getMessageID() {
         return messageID;
