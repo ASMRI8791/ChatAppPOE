@@ -122,6 +122,9 @@ public class ChatAppPOE {
 
                     if (action == 1) {
                         sentMessages.add(msg);
+                    }else if (action == 3){
+                        sentMessages.add(msg);
+                        Message.storeMessage(sentMessages); //Store to JSON
                     }
                 }
                 System.out.println("\nTotal number of messages processed: " + totalMessagesToSend);
