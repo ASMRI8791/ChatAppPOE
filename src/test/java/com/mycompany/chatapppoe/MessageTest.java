@@ -30,5 +30,22 @@ public class MessageTest {
         Message msg = new Message(1, "+27718693002", longMessage);
         assertTrue(msg.getMessageText().length() > 250);
     }
+    
+     // ========== Recipient Cell Number Tests ==========
+
+    @Test
+    public void testRecipientCell_Success() {
+        Message msg = new Message(1, "+27718693002", "Hi Mike");
+        String result = msg.checkRecipientCell();
+        assertEquals("Cell phone number successfully captured.", result);
+    }
+
+    @Test
+    public void testRecipientCell_Failure() {
+        Message msg = new Message(1, "08575975889", "Hi Keegan");
+        String result = msg.checkRecipientCell();
+        assertTrue(result.contains("incorrectly formatted") || result.contains("international code"));
+    }
+
 
 }
