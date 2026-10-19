@@ -22,5 +22,13 @@ public class MessageTest {
         Message msg = new Message(1, "+27718693002", "Hi Mike, can you join us for dinner tonight?");
         assertTrue(msg.getMessageText().length() <= 250);
     }
+    
+     @Test
+    public void testMessageLength_Failure() {
+        // Create a message longer than 250 characters
+        String longMessage = "a".repeat(260);
+        Message msg = new Message(1, "+27718693002", longMessage);
+        assertTrue(msg.getMessageText().length() > 250);
+    }
 
 }
