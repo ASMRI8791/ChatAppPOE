@@ -95,8 +95,22 @@ public class MessageTest {
         String result = msg.SentMessage(3);
         assertEquals("Message successfully stored.", result);
     }
+    
+    // ========== printMessages Test ==========
 
+    @Test
+    public void testPrintMessages() {
+        Message msg = new Message(1, "+27718693002", "Hi Mike");
+        String printed = msg.printMessages();
 
-
-
+        assertTrue(printed.contains("Message ID:"));
+        assertTrue(printed.contains("Message Hash:"));
+        assertTrue(printed.contains("Recipient:"));
+        assertTrue(printed.contains("Message:"));
+    }
 }
+
+
+
+
+
