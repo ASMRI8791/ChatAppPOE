@@ -60,6 +60,18 @@ public class MessageTest {
         assertTrue(hash.contains("TONIGHT") || hash.contains("TONIGHT?".toUpperCase().replace("?", "")));
         assertEquals(hash, hash.toUpperCase()); // Must be uppercase
     }
+    
+      // ========== Message ID Test ==========
+
+    @Test
+    public void testMessageID_Created() {
+        Message msg = new Message(1, "+27718693002", "Hi Mike");
+        String id = msg.getMessageID();
+
+        assertNotNull(id);
+        assertEquals(10, id.length());          // Must be 10 digits
+        assertTrue(msg.checkMessageID());
+    }
 
 
 
