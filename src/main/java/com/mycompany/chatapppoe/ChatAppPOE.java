@@ -117,15 +117,28 @@ public class ChatAppPOE {
                     int action = scanner.nextInt();
                     scanner.nextLine();
 
-                    String result = msg.SentMessage(action);
-                    System.out.println(result);
+                   String result = msg.SentMessage(action);
+System.out.println(result);
 
-                    if (action == 1) {
-                        sentMessages.add(msg);
-                    }else if (action == 3){
-                        sentMessages.add(msg);
-                        Message.storeMessage(sentMessages); //Store to JSON
-                    }
+if (action == 1) {
+    sentMessages.add(msg);
+} 
+else if (action == 2) {
+    // wait for user to press 0 to delete
+    System.out.print("Enter 0 to confirm delete: ");
+    int confirm = scanner.nextInt();
+    scanner.nextLine();
+
+    if (confirm == 0) {
+        System.out.println("Message deleted.");
+    } else {
+        System.out.println("Message not deleted.");
+    }
+} 
+else if (action == 3) {
+    sentMessages.add(msg);
+    Message.storeMessage(sentMessages);
+}
                 }
                 System.out.println("\nTotal number of messages processed: " + totalMessagesToSend);
                 break;
