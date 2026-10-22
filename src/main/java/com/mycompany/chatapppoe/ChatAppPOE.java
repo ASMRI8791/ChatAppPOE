@@ -57,8 +57,12 @@ public class ChatAppPOE {
     System.out.println("You are now logged in!");
     System.out.println("Welcome to QuickChat.");
 
-    // ========== PART 2 STARTS HERE ==========
+    
     ArrayList<Message> sentMessages = new ArrayList<>();
+    ArrayList<Message> disregardedMessages = new ArrayList<>();
+    ArrayList<Message> storedMessages = new ArrayList<>();
+    ArrayList<String> messageHashes = new ArrayList<>();
+    ArrayList<String> messageIDs = new ArrayList<>();
 
     System.out.print("How many messages do you wish to enter? ");
     int totalMessagesToSend = scanner.nextInt();
