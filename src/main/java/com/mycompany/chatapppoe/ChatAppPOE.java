@@ -153,6 +153,10 @@ else if (action == 3) {
                 System.out.println("Thank you for using QuickChat. Goodbye!");
                 running = false;
                 break;
+                
+            case 4:
+                System.out.println("Stored Messages menu coming soon...");
+                break;
 
             default:
                 System.out.println("Invalid option. Please choose 1, 2 or 3.");
