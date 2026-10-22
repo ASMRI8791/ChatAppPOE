@@ -71,6 +71,7 @@ public class ChatAppPOE {
         System.out.println("1) Send Messages");
         System.out.println("2) Show recently sent messages");
         System.out.println("3) Quit");
+        System.out.println("4) Stored Messages");
         System.out.print("Enter your choice: ");
 
         int menuChoice = scanner.nextInt();
