@@ -105,6 +105,32 @@ public static void storeMessage(ArrayList<Message> messages) {
         System.out.println("Error storing messages: " + e.getMessage());
     }
 }
+
+// ========== Load messages from JSON file ==========
+public static ArrayList<Message> loadStoredMessages() {
+    ArrayList<Message> messages = new ArrayList<>();
+    Gson gson = new Gson();
+
+    try {
+        // Read the JSON file
+        java.io.FileReader reader = new java.io.FileReader("storedMessages.json");
+        
+        // Convert JSON back to an array of Message objects
+        Message[] messageArray = gson.fromJson(reader, Message[].class);
+        
+        if (messageArray != null) {
+            for (Message m : messageArray) {
+                messages.add(m);
+            }
+        }
+        reader.close();
+        System.out.println("Stored messages loaded successfully from JSON.");
+    } catch (Exception e) {
+        System.out.println("No stored messages found or error reading file.");
+    }
+
+    return messages;
+}
       // Getters
     public String getMessageID() {
         return messageID;
