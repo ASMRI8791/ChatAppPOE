@@ -63,6 +63,9 @@ public class ChatAppPOE {
     ArrayList<Message> storedMessages = new ArrayList<>();
     ArrayList<String> messageHashes = new ArrayList<>();
     ArrayList<String> messageIDs = new ArrayList<>();
+    
+    //Load previously stored mesages from JSON
+    storedMessages = Message.loadStoredMessages();
 
     System.out.print("How many messages do you wish to enter? ");
     int totalMessagesToSend = scanner.nextInt();
