@@ -168,22 +168,139 @@ else if (action == 3) {
                 running = false;
                 break;
                 
-            case 4:
-                System.out.println("Stored Messages menu coming soon...");
-                break;
+           case 4:
+                    // ========== STORED MESSAGES MENU ==========
+                    boolean storedMenu = true;
 
-            default:
-                System.out.println("Invalid option. Please choose 1, 2 or 3.");
+                    while (storedMenu) {
+                        System.out.println("\n===== Stored Messages Menu =====");
+                        System.out.println("a) Display sender and recipient of all stored messages");
+                        System.out.println("b) Display the longest stored message");
+                        System.out.println("c) Search for a message by Message ID");
+                        System.out.println("d) Search for all messages by recipient");
+                        System.out.println("e) Delete a message using Message Hash");
+                        System.out.println("f) Display full report of all stored messages");
+                        System.out.println("g) Back to main menu");
+                        System.out.print("Enter your choice: ");
+
+                        String choice = scanner.nextLine().toLowerCase();
+
+                        switch (choice) {
+                            case "a":
+                                if (storedMessages.isEmpty()) {
+                                    System.out.println("No stored messages found.");
+                                } else {
+                                    System.out.println("\n--- Sender and Recipient ---");
+                                    for (Message m : storedMessages) {
+                                        System.out.println("Recipient: " + m.getRecipient());
+                                        System.out.println("Message: " + m.getMessageText());
+                                        System.out.println("---------------------------");
+                                    }
+                                }
+                                break;
+
+                            case "b":
+                                if (storedMessages.isEmpty()) {
+                                    System.out.println("No stored messages found.");
+                                } else {
+                                    Message longest = storedMessages.get(0);
+                                    for (Message m : storedMessages) {
+                                        if (m.getMessageText().length() > longest.getMessageText().length()) {
+                                            longest = m;
+                                        }
+                                    }
+                                    System.out.println("\n--- Longest Stored Message ---");
+                                    System.out.println(longest.printMessages());
+                                }
+                                break;
+
+                            case "c":
+                                System.out.print("Enter Message ID to search: ");
+                                String searchID = scanner.nextLine();
+                                boolean foundID = false;
+
+                                for (Message m : storedMessages) {
+                                    if (m.getMessageID().equals(searchID)) {
+                                        System.out.println("\nMessage found:");
+                                        System.out.println("Recipient: " + m.getRecipient());
+                                        System.out.println("Message: " + m.getMessageText());
+                                        foundID = true;
+                                        break;
+                                    }
+                                }
+                                if (!foundID) {
+                                    System.out.println("No message found with that ID.");
+                                }
+                                break;
+
+                            case "d":
+                                System.out.print("Enter recipient number to search: ");
+                                String searchRecipient = scanner.nextLine();
+                                boolean foundRecipient = false;
+
+                                System.out.println("\n--- Messages for " + searchRecipient + " ---");
+                                for (Message m : storedMessages) {
+                                    if (m.getRecipient().equals(searchRecipient)) {
+                                        System.out.println(m.getMessageText());
+                                        foundRecipient = true;
+                                    }
+                                }
+                                if (!foundRecipient) {
+                                    System.out.println("No messages found for that recipient.");
+                                }
+                                break;
+
+                            case "e":
+                                System.out.print("Enter Message Hash to delete: ");
+                                String hashToDelete = scanner.nextLine();
+                                boolean deleted = false;
+
+                                for (int i = 0; i < storedMessages.size(); i++) {
+                                    if (storedMessages.get(i).getMessageHash().equals(hashToDelete)) {
+                                        System.out.println("Message: \"" + storedMessages.get(i).getMessageText() + "\" successfully deleted.");
+                                        storedMessages.remove(i);
+                                        Message.storeMessage(storedMessages);
+                                        deleted = true;
+                                        break;
+                                    }
+                                }
+                                if (!deleted) {
+                                    System.out.println("No message found with that hash.");
+                                }
+                                break;
+
+                            case "f":
+                                if (storedMessages.isEmpty()) {
+                                    System.out.println("No stored messages to display.");
+                                } else {
+                                    System.out.println("\n========== FULL STORED MESSAGES REPORT ==========");
+                                    for (Message m : storedMessages) {
+                                        System.out.println(m.printMessages());
+                                        System.out.println("-----------------------------------------------");
+                                    }
+                                }
+                                break;
+
+                            case "g":
+                                storedMenu = false;
+                                break;
+
+                            default:
+                                System.out.println("Invalid choice. Please select a–g.");
+                        }
+                    }
+                    break;
+
+                default:
+                    System.out.println("Invalid option. Please choose 1, 2, 3 or 4.");
+            }
         }
+
+    } else {
+        System.out.println("Login failed. Please try again.");
     }
 
-} else {
-    System.out.println("Login failed. Please try again.");
+    scanner.close();
 }
-
-scanner.close();
-        }
-        }
     }
-   
-  
+}
